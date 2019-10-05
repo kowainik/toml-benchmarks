@@ -4,28 +4,25 @@ language: haskell
 git:
   depth: 5
 
-cabal: "2.4"
+cabal: "3.0"
 
 cache:
   directories:
   - "$HOME/.cabal/store"
-  
 
 matrix:
   include:
-  - ghc: 8.4.4
   - ghc: 8.6.5
-  
+  - ghc: 8.8.1
 
 install:
   # HLint check
   - curl -sSL https://raw.github.com/ndmitchell/neil/master/misc/travis.sh | sh -s -- hlint .
-
-  - cabal new-update
-  - cabal new-build --enable-tests --enable-benchmarks
+  - cabal update
+  - cabal build --enable-tests --enable-benchmarks
 
 script:
-  - echo 'No tests'
+  - cabal bench --enable-benchmarks
 
 notifications:
   email: false
