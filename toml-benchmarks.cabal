@@ -52,7 +52,7 @@ common common-options
                        ViewPatterns
 
 
-library
+benchmark toml-benchmarks
   import:              common-options
   type:                exitcode-stdio-1.0
   hs-source-dirs:      benchmark
@@ -72,10 +72,13 @@ library
   build-depends:      aeson
                     , deepseq ^>= 1.4
                     , gauge ^>= 0.2.4
+                    , hashable ^>= 1.2.7.0
                     , htoml ^>= 1.0.0.3
                     , htoml-megaparsec ^>= 2.1.0.3
                     , parsec
+                    , primitive ^>= 0.6.4.0
                     , text
                     , time
                     , toml-parser ^>= 0.1.0.0
                     , tomland
+                    , unordered-containers ^>= 0.2.10.0
