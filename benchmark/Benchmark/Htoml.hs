@@ -1,6 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 {-# LANGUAGE DeriveAnyClass     #-}
+{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE PackageImports     #-}
 {-# LANGUAGE StandaloneDeriving #-}
 
