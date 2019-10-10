@@ -14,7 +14,7 @@ import qualified Data.Text.IO as TIO
 -- | Benchmark.
 main :: IO ()
 main = do
-    txt <- TIO.readFile "./benchmark.toml"
+    txt <- TIO.readFile "./benchmark/benchmark.toml"
     Right tomlandVal <- pure $ Tomland.parse txt
     Right htomlVal <- pure $ Htoml.parse txt
     Right htomlMegaVal <- pure $ HtomlM.parse txt
