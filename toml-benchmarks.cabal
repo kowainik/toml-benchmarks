@@ -51,21 +51,34 @@ common common-options
                        TypeApplications
                        ViewPatterns
 
-library
-  import:              common-options
-  hs-source-dirs:      src
-  exposed-modules:     TomlBenchmarks
 
-
-benchmark toml-benchmarks-benchmark
+benchmark toml-benchmarks
   import:              common-options
   type:                exitcode-stdio-1.0
   hs-source-dirs:      benchmark
   main-is:             Main.hs
 
-  build-depends:       gauge ^>= 0.2.5
-                     , toml-benchmarks
+  other-modules:      Benchmark.Type
+                      Benchmark.Htoml
+                      Benchmark.HtomlMegaparsec
+                      Benchmark.Tomland
+                      Benchmark.TomlParser
 
-  ghc-options:         -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
+  ghc-options:        -threaded
+                      -rtsopts
+                      -with-rtsopts=-N
+                      -O2
+
+  build-depends:      aeson
+                    , deepseq ^>= 1.4
+                    , gauge ^>= 0.2.4
+                    , hashable
+                    , htoml ^>= 1.0.0.3
+                    , htoml-megaparsec ^>= 2.1.0.3
+                    , parsec
+                    , primitive
+                    , text
+                    , time
+                    , toml-parser ^>= 0.1.0.0
+                    , tomland
+                    , unordered-containers
