@@ -15,6 +15,7 @@ extra-doc-files:     README.md
                      CHANGELOG.md
 tested-with:         GHC == 8.4.4
                      GHC == 8.6.5
+                     GHC == 8.8.3
 
 source-repository head
   type:                git
@@ -80,5 +81,6 @@ benchmark toml-benchmarks
                     , text
                     , time
                     , toml-parser ^>= 0.1.0.0
-                    , tomland
+                    , tomland ^>= 1.3.0.0
                     , unordered-containers
+                    , validation-selective ^>= 0.1.0.0
