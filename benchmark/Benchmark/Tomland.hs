@@ -7,15 +7,16 @@ module Benchmark.Tomland
 import Data.Text (Text)
 
 import Benchmark.Type (FruitInside (..), HaskellType (..), SizeInside (..))
-import Toml (DecodeException, TOML, TomlCodec, parse, (.=))
+import Toml (TOML, TomlCodec, TomlDecodeError, parse, (.=))
+import Validation (Validation)
 
 import qualified Toml
 
 
-decode :: Text -> Either DecodeException HaskellType
-decode = Toml.decode codec
+decode :: Text -> Validation [TomlDecodeError] HaskellType
+decode = Toml.decodeValidation codec
 
-convert :: TOML -> Either DecodeException HaskellType
+convert :: TOML -> Validation [TomlDecodeError] HaskellType
 convert = Toml.runTomlCodec codec
 
 -- | Codec to use in tomland decode and convert functions.
